@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+
+on:
+  push:
+    branches:
+      - main
+    path-ignores:
+      - .github/**
+  pull-requests:
+    branches:
+      - main
+  schedule:
+    - cron: '15 6 * * 0'
+  workflow-dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "This was triggered by ${{ github.event_name }}"
+          echo "And uses ${{ github.ref }}"
+
+      - uses: actions/checkout@v3
+
+      - run: tree
