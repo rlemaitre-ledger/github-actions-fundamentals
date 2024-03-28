@@ -4,14 +4,14 @@ on:
   push:
     branches:
       - main
-    path-ignores:
+    paths-ignore:
       - .github/**
-  pull-request:
+  pull_request:
     branches:
       - main
   schedule:
     - cron: '15 6 * * 0'
-  workflow-dispatch:
+  workflow_dispatch:
     inputs:
       environment:
       description: 'Environment to deploy to'
